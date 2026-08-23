@@ -6,6 +6,7 @@ import Layout from './components/layout/Layout';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import AuthCallback from './pages/AuthCallback';
 import Verify from './pages/Verify';
 import Dashboard from './pages/Dashboard';
 import Assistant from './pages/Assistant';
@@ -58,6 +59,9 @@ export default function App() {
             {/* Public Sign In & Sign Up Portal */}
             <Route path="/login" element={<Login />} />
 
+            {/* Auth Verification & OAuth Callback */}
+            <Route path="/auth/callback" element={<AuthCallback />} />
+
             {/* Authenticated Workspace with Sidebar & Breadcrumbs */}
             <Route element={<Layout />}>
               <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
@@ -72,6 +76,9 @@ export default function App() {
               <Route path="/reports" element={<ProtectedRoute><Reports /></ProtectedRoute>} />
               <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
             </Route>
+
+            {/* Catch-all Wildcard Route */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </AuthProvider>
       </ErrorBoundary>

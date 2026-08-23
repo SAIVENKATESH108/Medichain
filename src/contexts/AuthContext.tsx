@@ -245,10 +245,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signUpWithEmail = useCallback(async (email: string, password: string, fullName: string) => {
     console.log('[Auth] Signing up with email:', email);
+    const callbackUrl = typeof window !== 'undefined' ? `${window.location.origin}/auth/callback` : undefined;
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
-      options: { data: { full_name: fullName } },
+      options: {
+        data: { full_name: fullName },
+        emailRedirectTo: callbackUrl,
+      },
     });
     if (error) {
       console.error('[Auth] Email sign-up error:', error.message, error.status);
