@@ -88,9 +88,9 @@ export default function Login() {
       setPassword('CDSCO-Audit-2026');
       setFullName('Inspector Ananya Roy, CDSCO');
     } else {
-      setEmail('venkateshsai589@gmail.com');
-      setPassword('EnterprisePass2026!');
-      setFullName('Sai Venkatesh');
+      setEmail('admin@medichain.org');
+      setPassword('AdminPass2026!');
+      setFullName('System Administrator');
     }
     toast.success(`Loaded credentials for ${role.toUpperCase()}`);
   };
