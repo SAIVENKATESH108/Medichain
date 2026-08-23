@@ -155,7 +155,7 @@ npm install
 ### 2. Environment Configuration
 Create a `.env` file in the project root:
 ```env
-VITE_SUPABASE_URL=https://ibzdlyhescujpjxqvzvp.supabase.co
+VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
 VITE_GEMINI_API_KEY=your-gemini-api-key
 VITE_OPENROUTER_API_KEY=your-openrouter-key (free tier enabled)
@@ -168,9 +168,8 @@ npm run dev
 
 ---
 
-## 📜 Presentation & Documentation Assets
+## 📜 Engineering Documentation
 - **Executive Engineering Specification PDF**: [`doc/MediChain_Verify_Enterprise_Specification.pdf`](doc/MediChain_Verify_Enterprise_Specification.pdf)
-- **PowerPoint Presentation Deck**: [`AI-Powered-Medicine-Authenticity-at-Your-Fingertips.pptx`](AI-Powered-Medicine-Authenticity-at-Your-Fingertips.pptx)
 
 ---
 
