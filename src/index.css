@@ -1,0 +1,513 @@
+@import "tailwindcss";
+@import "@ninna-ui/core/theme/presets/ocean.css";
+@import "@ninna-ui/core/theme/presets/default.css";
+
+@variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary: #0F172A;
+  --color-secondary: #06B6D4;
+  --color-accent: #10B981;
+  --color-danger: #EF4444;
+  --color-warning: #F59E0B;
+  --color-surface: #0F172A;
+  --color-bg-light: #0B1120;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Mode Specific Body Styling ─── */
+html[data-mode="dark"] body {
+  background-color: #080d1a;
+  color: #f1f5f9;
+}
+
+html[data-mode="light"] body {
+  background-color: #f4f7fe;
+  color: #1b2559;
+}
+
+/* ─── Cyber-Pharma & Modern SaaS Ambient Backgrounds ─── */
+
+.bg-cyber-dark {
+  transition: all 0.3s ease;
+}
+
+html[data-mode="dark"] .bg-cyber-dark {
+  background-color: #080d1a;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.14) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(99, 102, 241, 0.10) 0px, transparent 50%),
+    radial-gradient(rgba(51, 65, 85, 0.25) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+}
+
+/* Matching Modern Light SaaS Theme (Dashly Reference Aesthetics) */
+html[data-mode="light"] .bg-cyber-dark {
+  background-color: #f4f7fe;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(67, 24, 255, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.06) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.04) 0px, transparent 50%),
+    radial-gradient(rgba(163, 174, 208, 0.3) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+}
+
+/* ─── Ultra-Glassmorphism Classes ─── */
+
+.glass-panel {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+}
+
+html[data-mode="dark"] .glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+html[data-mode="light"] .glass-panel {
+  background: #ffffff;
+  border: 1px solid rgba(224, 229, 242, 0.9);
+  box-shadow: 0px 18px 40px rgba(112, 144, 176, 0.12);
+}
+
+.glass-panel-elevated {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: all 0.3s ease;
+}
+
+html[data-mode="dark"] .glass-panel-elevated {
+  background: rgba(17, 27, 49, 0.85);
+  border: 1px solid rgba(6, 182, 212, 0.22);
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.5), 0 0 25px -4px rgba(6, 182, 212, 0.15);
+}
+
+html[data-mode="light"] .glass-panel-elevated {
+  background: #ffffff;
+  border: 1px solid #e0e5f2;
+  box-shadow: 0px 20px 48px rgba(112, 144, 176, 0.15);
+}
+
+.glass-card-interactive {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html[data-mode="dark"] .glass-card-interactive {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+html[data-mode="dark"] .glass-card-interactive:hover {
+  background: rgba(22, 35, 62, 0.88);
+  border-color: rgba(6, 182, 212, 0.45);
+  box-shadow: 0 12px 35px -5px rgba(6, 182, 212, 0.2), 0 0 20px -2px rgba(6, 182, 212, 0.25);
+  transform: translateY(-3px);
+}
+
+html[data-mode="light"] .glass-card-interactive {
+  background: #ffffff;
+  border: 1px solid #e0e5f2;
+  box-shadow: 0px 14px 34px rgba(112, 144, 176, 0.09);
+}
+
+html[data-mode="light"] .glass-card-interactive:hover {
+  background: #ffffff;
+  border-color: #4318ff;
+  box-shadow: 0px 22px 45px rgba(67, 24, 255, 0.16);
+  transform: translateY(-3px);
+}
+
+/* ─── Form Controls & Inputs (Matching Sets) ─── */
+
+.glass-input {
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+html[data-mode="dark"] .glass-input {
+  background: rgba(10, 16, 30, 0.75);
+  border: 1px solid rgba(51, 65, 85, 0.7);
+  color: #f8fafc;
+}
+
+html[data-mode="dark"] .glass-input:focus {
+  background: rgba(13, 22, 42, 0.9);
+  border-color: #06b6d4;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.35), 0 0 15px 0 rgba(6, 182, 212, 0.3);
+  outline: none;
+}
+
+html[data-mode="light"] .glass-input {
+  background: #ffffff;
+  border: 1px solid #e0e5f2;
+  color: #2b3674;
+  box-shadow: 0px 2px 6px rgba(112, 144, 176, 0.06);
+}
+
+html[data-mode="light"] .glass-input:focus {
+  background: #ffffff;
+  border-color: #4318ff;
+  box-shadow: 0 0 0 3px rgba(67, 24, 255, 0.15);
+  outline: none;
+}
+
+/* ─── Light Mode Matching Sets Typography & Component Overrides ─── */
+
+html[data-mode="light"] h1,
+html[data-mode="light"] h2,
+html[data-mode="light"] h3,
+html[data-mode="light"] h4,
+html[data-mode="light"] h5,
+html[data-mode="light"] h6 {
+  color: #1b2559 !important;
+}
+
+html[data-mode="light"] .text-white {
+  color: #1b2559;
+}
+
+html[data-mode="light"] .text-slate-200,
+html[data-mode="light"] .text-slate-300 {
+  color: #2b3674;
+}
+
+html[data-mode="light"] .text-slate-400,
+html[data-mode="light"] .text-slate-500 {
+  color: #707eae;
+}
+
+html[data-mode="light"] .bg-slate-900,
+html[data-mode="light"] .bg-slate-950 {
+  background-color: #ffffff !important;
+  border-color: #e0e5f2 !important;
+  color: #1b2559 !important;
+}
+
+html[data-mode="light"] .bg-slate-800 {
+  background-color: #f4f7fe !important;
+  border-color: #e0e5f2 !important;
+  color: #2b3674 !important;
+}
+
+html[data-mode="light"] .border-slate-800,
+html[data-mode="light"] .border-slate-700 {
+  border-color: #e0e5f2 !important;
+}
+
+/* Navbar in Light Mode */
+html[data-mode="light"] header {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom: 1px solid #e0e5f2 !important;
+  box-shadow: 0px 4px 20px rgba(112, 144, 176, 0.08) !important;
+}
+
+/* Sidebar Active Navigation Item (Clean Cyan Glass Aesthetics) */
+.sidebar-container .nav-item-active {
+  background: rgba(6, 182, 212, 0.15) !important;
+  border: 1px solid rgba(6, 182, 212, 0.4) !important;
+  color: #22d3ee !important;
+  box-shadow: 0 4px 16px -2px rgba(6, 182, 212, 0.25) !important;
+}
+
+html[data-mode="light"] .sidebar-container {
+  background-color: #ffffff !important;
+  border-right: 1px solid #e0e5f2 !important;
+}
+
+html[data-mode="light"] .sidebar-container .nav-item-active {
+  background: rgba(6, 182, 212, 0.12) !important;
+  border: 1px solid rgba(6, 182, 212, 0.35) !important;
+  color: #0284c7 !important;
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.12) !important;
+}
+
+html[data-mode="light"] .sidebar-container .nav-item-inactive {
+  color: #707eae !important;
+}
+
+html[data-mode="light"] .sidebar-container .nav-item-inactive:hover {
+  background-color: #f4f7fe !important;
+  color: #1b2559 !important;
+}
+
+/* Table in Light Mode */
+html[data-mode="light"] table thead {
+  background-color: #f4f7fe !important;
+  color: #707eae !important;
+  border-bottom: 1px solid #e0e5f2 !important;
+}
+
+html[data-mode="light"] table tbody tr {
+  border-color: #e0e5f2 !important;
+}
+
+html[data-mode="light"] table tbody tr:hover {
+  background-color: rgba(67, 24, 255, 0.02) !important;
+}
+
+/* Specific background overrides for badges, panels & containers in light mode */
+html[data-mode="light"] .bg-slate-800\/90,
+html[data-mode="light"] .bg-slate-800\/80,
+html[data-mode="light"] .bg-slate-800\/70,
+html[data-mode="light"] .bg-slate-800\/60,
+html[data-mode="light"] .bg-slate-800\/50,
+html[data-mode="light"] .bg-slate-800\/40,
+html[data-mode="light"] .bg-slate-800\/30,
+html[data-mode="light"] .bg-slate-800\/20,
+html[data-mode="light"] .bg-slate-800,
+html[data-mode="light"] .bg-slate-700\/90,
+html[data-mode="light"] .bg-slate-700\/80,
+html[data-mode="light"] .bg-slate-700\/60,
+html[data-mode="light"] .bg-slate-700\/50,
+html[data-mode="light"] .bg-slate-700\/40,
+html[data-mode="light"] .bg-slate-700 {
+  background-color: #f4f7fe !important;
+  border-color: #e0e5f2 !important;
+  color: #2b3674 !important;
+}
+
+html[data-mode="light"] .bg-slate-900\/90,
+html[data-mode="light"] .bg-slate-900\/80,
+html[data-mode="light"] .bg-slate-900\/70,
+html[data-mode="light"] .bg-slate-900\/60,
+html[data-mode="light"] .bg-slate-900\/50,
+html[data-mode="light"] .bg-slate-900\/40,
+html[data-mode="light"] .bg-slate-900\/30,
+html[data-mode="light"] .bg-slate-900\/20,
+html[data-mode="light"] .bg-slate-900,
+html[data-mode="light"] .bg-slate-950\/90,
+html[data-mode="light"] .bg-slate-950\/80,
+html[data-mode="light"] .bg-slate-950\/70,
+html[data-mode="light"] .bg-slate-950\/60,
+html[data-mode="light"] .bg-slate-950\/50,
+html[data-mode="light"] .bg-slate-950\/40,
+html[data-mode="light"] .bg-slate-950 {
+  background-color: #ffffff !important;
+  border-color: #e0e5f2 !important;
+  color: #1b2559 !important;
+}
+
+html[data-mode="light"] select option {
+  background-color: #ffffff !important;
+  color: #1b2559 !important;
+}
+
+html[data-mode="light"] .border-slate-900,
+html[data-mode="light"] .border-slate-800,
+html[data-mode="light"] .border-slate-700,
+html[data-mode="light"] .border-slate-800\/80,
+html[data-mode="light"] .border-slate-700\/80,
+html[data-mode="light"] .border-slate-700\/60,
+html[data-mode="light"] .border-slate-700\/50,
+html[data-mode="light"] .border-slate-700\/40,
+html[data-mode="light"] .border-slate-600,
+html[data-mode="light"] .border-white\/10,
+html[data-mode="light"] .border-white\/15,
+html[data-mode="light"] .border-white\/20 {
+  border-color: #e0e5f2 !important;
+}
+
+html[data-mode="light"] .text-slate-100,
+html[data-mode="light"] .text-slate-200 {
+  color: #1b2559 !important;
+}
+
+html[data-mode="light"] .text-slate-300 {
+  color: #2b3674 !important;
+}
+
+html[data-mode="light"] .text-slate-400,
+html[data-mode="light"] .text-slate-500 {
+  color: #707eae !important;
+}
+
+/* Ensure colored buttons and badges retain crisp contrast */
+.glow-btn-cyan,
+.glow-btn-cyan * {
+  color: #ffffff !important;
+}
+
+html[data-mode="light"] pre {
+  background-color: #f8fafc !important;
+  border-color: #e0e5f2 !important;
+  color: #1b2559 !important;
+}
+
+html[data-mode="light"] code {
+  color: #0284c7 !important;
+}
+
+html[data-mode="light"] table tbody tr {
+  border-color: #e0e5f2 !important;
+}
+
+html[data-mode="light"] table tbody tr:hover {
+  background-color: rgba(67, 24, 255, 0.02) !important;
+}
+
+/* ─── Radiant Glow Buttons (Palette Aware) ─── */
+
+.glow-btn-cyan {
+  color: #ffffff !important;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html[data-palette="cyan"] .glow-btn-cyan {
+  background: linear-gradient(135deg, #06b6d4 0%, #0d9488 50%, #10b981 100%);
+  box-shadow: 0 4px 20px -2px rgba(6, 182, 212, 0.45);
+}
+
+html[data-palette="emerald"] .glow-btn-cyan {
+  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+  box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.45);
+}
+
+html[data-palette="indigo"] .glow-btn-cyan {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #4338ca 100%);
+  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.45);
+}
+
+html[data-palette="amber"] .glow-btn-cyan {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+  box-shadow: 0 4px 20px -2px rgba(245, 158, 11, 0.45);
+}
+
+html[data-palette="rose"] .glow-btn-cyan {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 50%, #be123c 100%);
+  box-shadow: 0 4px 20px -2px rgba(244, 63, 94, 0.45);
+}
+
+.glow-btn-cyan:hover {
+  transform: translateY(-1.5px) scale(1.01);
+  filter: brightness(1.1);
+}
+
+.glow-btn-cyan:active {
+  transform: translateY(0.5px) scale(0.99);
+}
+
+/* ─── Glowing Pills (Dark & Light Matching) ─── */
+
+html[data-mode="dark"] .glow-pill-cyan {
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  color: #22d3ee;
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.25);
+}
+
+html[data-mode="light"] .glow-pill-cyan {
+  background: #e9f9fe;
+  border: 1px solid #beebfa;
+  color: #0284c7;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12);
+}
+
+html[data-mode="dark"] .glow-pill-emerald {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
+}
+
+html[data-mode="light"] .glow-pill-emerald {
+  background: #e6f9f0;
+  border: 1px solid #b7f2d5;
+  color: #057a55;
+  box-shadow: 0 2px 8px rgba(5, 122, 85, 0.12);
+}
+
+html[data-mode="dark"] .glow-pill-danger {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
+}
+
+html[data-mode="light"] .glow-pill-danger {
+  background: #feefef;
+  border: 1px solid #fdb8b8;
+  color: #e02424;
+  box-shadow: 0 2px 8px rgba(224, 36, 36, 0.12);
+}
+
+@keyframes scan {
+  0% { top: 0%; opacity: 0.8; }
+  50% { top: 95%; opacity: 1; }
+  100% { top: 0%; opacity: 0.8; }
+}
+
+.animate-scan {
+  animation: scan 2.8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+
+/* ─── Invisible Functional Scrollbars (All Browsers) ─── */
+
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+  background: transparent !important;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.6));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(6, 182, 212, 0.9));
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* ─── Call to Action Banner Contrast Enforcement ─── */
+.cta-banner-container h2,
+.cta-banner-container h2 * {
+  color: #ffffff !important;
+}
+
+.cta-banner-container p,
+.cta-banner-container p * {
+  color: #cffafe !important;
+}
+
